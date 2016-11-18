@@ -1,8 +1,26 @@
+.mb-schedule-button-group {
+	width:100%;
+	margin: 0.5rem auto;
+}
+
 .day-name {
-	margin: auto;
-	margin-top: 1rem; 
+	margin: 1rem auto;
+	display: block;
+	text-align: left;
 }
 
 .spacer {
-	margin-top: 10rem; 	
+	margin-top: 10rem;
+}
+
+.button-style{
+	width:100%;
+}
+
+.scheduleButtonGroup {
+	width: 100%;
+}
+
+.scheduleButton {
+	width: 33.33%;
 }

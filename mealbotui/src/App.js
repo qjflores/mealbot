@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import {Grid, Col, Row, Nav, NavItem} from 'react-bootstrap'; 
+import {Grid, Col, Row, Nav, NavItem} from 'react-bootstrap';
 
 import Web3 from 'web3';
 import _ from 'lodash';
@@ -27,6 +27,8 @@ class App extends Component {
       firstNames: [],
       lastNames: [],
       balances: [],
+      day:"",
+      day_meal_plan: []
     }
   }
 
