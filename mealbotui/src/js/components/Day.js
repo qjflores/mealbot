@@ -87,9 +87,9 @@ export class Day extends Component {
         <div className="day-name" onClick={this.selectAllMeals.bind(this)}>{this.props.day}</div>
 
         <div className="scheduleButtonGroup">
-          <MealTicket name="Breakfast" isReserved={this.state.breakfast} clickHandler={this.toggleBreakfast}/>
-          <MealTicket name="Lunch" isReserved={this.state.lunch} clickHandler={this.toggleLunch}/> 
-          <MealTicket name="Dinner" isReserved={this.state.dinner} clickHandler={this.toggleDinner}/>
+          <MealTicket className="MealTicket" name="Breakfast" isReserved={this.state.breakfast} clickHandler={this.toggleBreakfast}/>
+          <MealTicket className="MealTicket" name="Lunch" isReserved={this.state.lunch} clickHandler={this.toggleLunch}/> 
+          <MealTicket className="MealTicket" name="Dinner" isReserved={this.state.dinner} clickHandler={this.toggleDinner}/>
         </div>
 
         </div>
