@@ -1,0 +1,16 @@
+.Wallet {
+	margin: auto;
+	margin-top: 9rem;
+	text-align: left;
+	height:15rem;
+	width: 100%;
+	background-color: beige;
+}
+
+.wallet-label {	
+    font-size: x-large;
+    margin: auto;
+    margin-left: 2rem;
+    padding-top: 1rem;
+
+}
