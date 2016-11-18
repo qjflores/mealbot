@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Col, Grid, Row, ButtonGroup, Button} from 'react-bootstrap';
+import {ButtonGroup, Button} from 'react-bootstrap';
 
 import {MealTicket} from './MealTicket';
 
@@ -9,19 +9,15 @@ export class Day extends Component {
 	render() {
 		return (
 			<div className="Day-component">
-        <Grid>
-          <Row>
-            <Col><div className="day-name">{this.props.day} </div></Col>
-            <Col><div className="mb-schedule-button-group">
-            <ButtonGroup>
-              <Button>Breatfastt</Button>
-              <Button>Lunch</Button>
-              <Button>Dinner</Button>
-            </ButtonGroup>
-            </div>
-            </Col>
-          </Row>
-        </Grid>
+        <div className="mb-schedule-button-group">
+        <div className="day-name"></div>
+         {this.props.day} 
+        <ButtonGroup>
+          <Button>Breatfast</Button>
+          <Button>Lunch</Button>
+          <Button>Dinner</Button>
+        </ButtonGroup>
+        </div>
 			</div>
 			)
 	}
