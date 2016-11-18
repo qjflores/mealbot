@@ -1,3 +1,5 @@
 .MealTicket {
 	border: solid;
+	border-radius: 2%;
+	font-size: large;
 }

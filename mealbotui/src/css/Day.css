@@ -22,5 +22,10 @@
 }
 
 .scheduleButton {
+	background-color: red;
 	width: 33.33%;
+}
+
+.aoscheduleButtonSelected {
+	width: 33.33%;	
 }

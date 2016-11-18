@@ -15,8 +15,6 @@ export class AppNavTab extends Component {
       isAccountVisible:false,
       isScheduleVisible:false,
       isHomeVisible:true};
-      console.log("AppNavTab");
-      console.log(this.state);
     this.handleAccountSelect = this.handleAccountSelect.bind(this);
     this.handleScheduleSelect = this.handleScheduleSelect.bind(this);  
   } 
