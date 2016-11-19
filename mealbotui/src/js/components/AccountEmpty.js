@@ -7,8 +7,8 @@ export class AccountEmpty extends Component {
 	render() {
 		return (
 			<div className="AccountEmpty">
-			<Wallet label="Wallets"/>
-			<Balance />
+			<Wallet label="Wallets" isWalletAttached={false}/>
+			<Balance label="Balance" balance={0} isWalletAttached={false}/>
 			</div>
 			)
 	}

@@ -1,7 +1,6 @@
 .Wallet {
 	margin: auto;
 	margin-top: 9rem;
-	text-align: left;
 	height:15rem;
 	width: 100%;
 	background-color: beige;
@@ -12,5 +11,23 @@
     margin: auto;
     margin-left: 2rem;
     padding-top: 1rem;
+	text-align: left;
+}
 
+.wallet-icon {
+	text-align: left;
+	margin: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.attach-wallet {
+	text-align: left;
+	font-size: large;
+	margin-left: 5rem;
+	margin-top: 4rem; 
+	width:60%;
+	padding-left: 2rem;
+	border:solid;
+	border-radius: 4%;
 }
