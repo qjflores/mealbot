@@ -3,3 +3,35 @@
     margin-top: 10rem;
 
 }
+
+.email-label {
+	text-align: left;
+	margin: auto;
+	width: 50%
+}
+
+.email-input {
+	margin: auto;
+	margin-left: 1rem; 
+
+}
+
+.password-label {
+	text-align: left;
+	margin: auto;
+	width: 50%
+}
+
+.password-input {
+	margin: auto;
+	margin-left: 1rem; 
+}
+
+.login-button {
+	margin: auto;
+	margin-top: 1rem;
+	border: solid;
+	border-width: 1px;
+	width: 10%;
+	background-color: grey;
+}

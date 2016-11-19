@@ -9,17 +9,28 @@ export class Account extends Component {
     this.state = {
       isAuthenticated: false
     }
+    this.login = this.login.bind(this);
   }
 
   componentWillMount() {
-    this.setState({isAuthenticated: true});
+    this.setState({isAuthenticated: false});
   }
-  
+
+  login() {
+      // We can call the show method from Auth0Lock,
+      // which is passed down as a prop, to allow
+      // the user to log in
+      event.preventDefault();
+      console.log("Login.login");
+      this.setState({isNotLoggedIn: true,
+        isAuthenticated: true});
+    }
+
   render() {
     return (
       <div className="Account-component">
-        {!this.state.isAuthenticated ? <Login /> : null}
-        <AccountEmpty />
+        {!this.state.isAuthenticated ? <Login isAuthenticated={this.state.isAuthenticated} login={this.login}/> : <AccountEmpty />}
+        
       </div>
       )
   }

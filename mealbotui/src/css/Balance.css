@@ -1,0 +1,41 @@
+.Balance {
+	margin: auto;
+	margin-top: 5rem; 
+	padding: auto;
+	height:15rem;
+	width: 100%;
+    background-color: lightgray;
+}
+
+.balance-label {	
+	display: flex;
+    font-size: x-large;
+    text-align: left;
+    margin: auto;
+    margin-left: 2rem; 
+    padding-top: 1rem; 
+
+}
+
+.balance-icon {
+	text-align: left;
+	margin: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.add-balance {
+	text-align: left;
+	font-size: large;
+	margin-left: 5rem;
+	margin-top: 4rem; 
+	width:60%;
+	padding-left: 2rem;
+	border:solid;
+	border-radius: 4%;
+}
+
+.balance-amount {
+	margin: auto;
+	margin-left: 2rem;
+}
