@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import {FormControl} from 'react-bootstrap';
 
 class CustomMenu extends Component {
   constructor(props, context) {

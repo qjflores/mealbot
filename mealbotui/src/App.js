@@ -19,6 +19,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isAccountVisible:false,
+      isScheduleVisible:false,
+      isHomeVisible:true,
+      isKitchenShiftVisible:false,
       loggedIn:false,
       firstNames: [],
       lastNames: [],
@@ -26,8 +30,7 @@ class App extends Component {
       day:"",
       day_meal_plan: []
     }
-    this.clickChart = this.clickChart.bind(this);
-    this.clickGear = this.clickGear.bind(this);
+
   }
 
   componentWillMount() {
@@ -36,6 +39,9 @@ class App extends Component {
       firstNames: String(data[0]).split(','),
       lastNames: String(data[1]).split(','),
       balances: String(data[2]).split(','),
+      isAccountVisible: false,
+      isHomeVisible: true,
+      isScheduleVisible:false,
     })
     console.log(data);
   }
@@ -45,19 +51,9 @@ class App extends Component {
     alert(`selected ${eventKey}`);
   }
 
-  clickChart() {
-    console.log("clickChart");
-  }
-
-  clickGear() {
-    console.log("clickGear");
-  }
-
-  clickLogo() {
-    console.log("clickLogo"); 
-  }
 
   render() {
+    console.log("render App");
     var TableRows = [];
     _.each(this.state.firstNames, (values,index) => {
       TableRows.push(
@@ -71,16 +67,9 @@ class App extends Component {
     return (
 
       <div className="App">
-        <Grid>
-        <Row className="App-nav-header">
-          <Col xs={6} md={4}><i className="fa fa-bar-chart fa-5x" onClick={this.clickChart.bind(this)}></i></Col>
-          <Col xs={6} md={4} className="App-name" onClick={this.clickLogo.bind(this)}>MealBot </Col>
-          <Col xs={6} md={4}>
-            <SettingsMenu clickHandler={this.clickGear}/>
-          </Col>
-        </Row>
-        <AppNavTab />
-        </Grid>
+        <AppNavTab isAccountVisible={this.state.isAccountVisible} 
+          isScheduleVisible={this.state.isScheduleVisible} isHomeVisible={this.state.isHomeVisible} isKitchenShiftVisible={this.state.isKitchenShiftVisible}/>
+
       </div>
     );
   }
