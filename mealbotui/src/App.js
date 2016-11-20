@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import {Grid, Col, Row, Nav, NavItem} from 'react-bootstrap';
+import {Grid, Col, Row} from 'react-bootstrap';
 
 import Web3 from 'web3';
 import _ from 'lodash';
 
-import NewUser from './js/components/NewUser';
 import AppNavTab from './js/components/AppNavTab';
-import Account from './js/components/Account';
-import Schedule from './js/components/Schedule';
-import AppBody from './js/components/AppBody';
+import SettingsMenu from './js/components/SettingsMenu'
 
 var ETHEREUM_CLIENT = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 
@@ -30,6 +26,8 @@ class App extends Component {
       day:"",
       day_meal_plan: []
     }
+    this.clickChart = this.clickChart.bind(this);
+    this.clickGear = this.clickGear.bind(this);
   }
 
   componentWillMount() {
@@ -45,6 +43,18 @@ class App extends Component {
   handleSelect(eventKey) {
     event.preventDefault();
     alert(`selected ${eventKey}`);
+  }
+
+  clickChart() {
+    console.log("clickChart");
+  }
+
+  clickGear() {
+    console.log("clickGear");
+  }
+
+  clickLogo() {
+    console.log("clickLogo"); 
   }
 
   render() {
@@ -63,9 +73,11 @@ class App extends Component {
       <div className="App">
         <Grid>
         <Row className="App-nav-header">
-          <Col xs={6} md={4}><i className="fa fa-bar-chart fa-5x"></i></Col>
-          <Col xs={6} md={4} className="App-name">MealBot</Col>
-          <Col xs={6} md={4}><i className="fa fa-gear fa-5x"></i></Col>
+          <Col xs={6} md={4}><i className="fa fa-bar-chart fa-5x" onClick={this.clickChart.bind(this)}></i></Col>
+          <Col xs={6} md={4} className="App-name" onClick={this.clickLogo.bind(this)}>MealBot </Col>
+          <Col xs={6} md={4}>
+            <SettingsMenu clickHandler={this.clickGear}/>
+          </Col>
         </Row>
         <AppNavTab />
         </Grid>

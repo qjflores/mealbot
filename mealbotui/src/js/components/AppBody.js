@@ -7,9 +7,6 @@ import {PoweredBy} from './PoweredBy';
 import './../../css/AppBody.css'
 
 export class AppBody extends Component {
-	constructor(props) {
-    super(props);
-    }
 
 	render() {
 		return (

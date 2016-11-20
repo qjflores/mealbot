@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import {Form, FormGroup, FormControl, Grid, Col, Button, ControlLabel, Checkbox, 
-  Row} from 'react-bootstrap';
-
 import './../../css/Login.css'
 
 export class Login extends Component {
