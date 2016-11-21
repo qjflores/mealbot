@@ -15,7 +15,7 @@ export class AppNavTab extends Component {
       isAccountVisible:false,
       isScheduleVisible:false,
       isHomeVisible:true,
-      isKitchenShiftVisible: true
+      isKitchenShiftVisible: false
     };
     this.handleAccountSelect = this.handleAccountSelect.bind(this);
     this.handleScheduleSelect = this.handleScheduleSelect.bind(this);  
@@ -29,7 +29,8 @@ export class AppNavTab extends Component {
     this.setState({
       isAccountVisible:this.props.isAccountVisible,
       isScheduleVisible: this.props.isScheduleVisible,
-      isHomeVisible:this.props.isHomeVisible
+      isHomeVisible:this.props.isHomeVisible,
+      isKitchenShiftVisible:this.props.isKitchenShiftVisible,
     })
   }
 
@@ -40,7 +41,8 @@ export class AppNavTab extends Component {
     this.setState({
       isAccountVisible:true,
       isScheduleVisible: false,
-      isHomeVisible:false
+      isHomeVisible:false,
+      isKitchenShiftVisible: false
     })
     console.log(this.state);
     console.log(this.state.isAccountVisible);
@@ -53,7 +55,8 @@ export class AppNavTab extends Component {
     this.setState({
       isAccountVisible:false,
       isScheduleVisible:true,
-      isHomeVisible:false
+      isHomeVisible:false,
+      isKitchenShiftVisible: false
 
     })
     console.log(this.state);

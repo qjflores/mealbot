@@ -1,0 +1,11 @@
+.DayKitchenShift {	
+    display: flex;
+    width: 50%;
+    margin: auto;
+    text-align: left;    
+    border: solid;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}

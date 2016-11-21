@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import {Grid, Col, Row} from 'react-bootstrap';
 
 import Web3 from 'web3';
 import _ from 'lodash';
 
 import AppNavTab from './js/components/AppNavTab';
-import SettingsMenu from './js/components/SettingsMenu'
 
 var ETHEREUM_CLIENT = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 

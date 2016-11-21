@@ -11,7 +11,6 @@ export class MealTicket extends Component {
 	}
 
 	componentWillMount() {
-		var _bool = this.props.is;
 		this.setState({
 			isReserved: this.props.isReserved,
 		});

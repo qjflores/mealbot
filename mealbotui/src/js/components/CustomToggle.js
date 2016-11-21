@@ -7,6 +7,7 @@ export class CustomToggle extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+
   handleClick(e) {
     e.preventDefault();
 
