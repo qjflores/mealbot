@@ -31,3 +31,12 @@
 	border:solid;
 	border-radius: 4%;
 }
+
+.wallet-list {	
+    border: solid;
+    width: 50%;
+    margin: auto;
+    margin-left: 7rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

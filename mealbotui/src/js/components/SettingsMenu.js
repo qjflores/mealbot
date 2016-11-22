@@ -19,8 +19,9 @@ export class SettingsMenu extends Component {
               <i className="fa fa-gear fa-5x" onClick={this.props.clickHandler}></i>
             </CustomToggle>
             <CustomMenu bsRole="menu">
-              <MenuItem eventKey="2" onClick={this.props.clickKitchenShift}>Kitchen Shifts</MenuItem>
-              <MenuItem eventKey="1">Account Settings</MenuItem>
+              <MenuItem eventKey="1" onClick={this.props.clickKitchenShift}>Kitchen Shifts</MenuItem>
+              <MenuItem eventKey="2">Account Settings</MenuItem>
+              <MenuItem eventKey="3">Logout</MenuItem>
             </CustomMenu>
           </Dropdown>
         </div>
