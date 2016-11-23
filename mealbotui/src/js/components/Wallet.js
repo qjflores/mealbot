@@ -9,12 +9,12 @@ export class Wallet extends Component {
     super(props);
     this.state = {
       isWalletAttached: false,
-      showModal: false,
+      showWalletModal: false,
       wallets:[]
     };
     this.attachWallet = this.attachWallet.bind(this);
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.openWalletModal = this.openWalletModal.bind(this);
+    this.closeWalletModal = this.closeWalletModal.bind(this);
     this.addWallet = this.addWallet.bind(this);
   }
 
@@ -22,28 +22,29 @@ export class Wallet extends Component {
     this.setState({
       isWalletAttached:this.props.isWalletAttached,
       wallets:[{address:"0x1",name:"wallet-1"}, {address:"0x2",name:"wallet-2"}]
+      //wallets: this.props.wallets
     })
   }
 
-  closeModal() {
-    console.log("closeModal");
-    this.setState({ showModal: false });
+  closeWalletModal() {
+    console.log("closeWalletModal");
+    this.setState({ showWalletModal: false });
   }
 
-  openModal() {
-    this.setState({ showModal: true });
+  openWalletModal() {
+    this.setState({ showWalletModal: true });
     console.log("open");
   }
 
   attachWallet() {
-    this.openModal();
+    this.openWalletModal();
     console.log("attachWallet");
   }
 
   addWallet(walletName, walletAddress) {
     var updatedWallet =this.state.wallets;
     updatedWallet.push({address:walletAddress,name:walletName});
-    this.setState({ showModal: false, wallets:updatedWallet});
+    this.setState({ showWalletModal: false, wallets:updatedWallet});
   }
 
   render() {
@@ -61,9 +62,9 @@ export class Wallet extends Component {
         <i className="fa fa-id-card wallet-icon"></i>
         Attach Wallet
       </div>
-      {this.state.showModal ? <AddWalletModal 
-        showModal={this.state.showModal} 
-        closeModal={this.closeModal}
+      {this.state.showWalletModal ? <AddWalletModal 
+        showWalletModal={this.state.showWalletModal} 
+        closeWalletModal={this.closeWalletModal}
         addWallet={this.addWallet}
         /> : null}
 
