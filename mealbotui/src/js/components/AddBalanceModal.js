@@ -6,7 +6,7 @@ export class AddBalanceModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      wallet:null,
+      wallet: undefined,
       balance:0
     };
     this.handleWalletChange = this.handleWalletChange.bind(this);

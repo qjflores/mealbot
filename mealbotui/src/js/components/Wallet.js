@@ -21,7 +21,7 @@ export class Wallet extends Component {
   componentWillMount() {
     this.setState({
       isWalletAttached:this.props.isWalletAttached,
-      wallets:[{address:"0x1",name:"wallet-1"}, {address:"0x2",name:"wallet-2"}]
+      wallets:[{key: 1, address:"0x1",name:"wallet-1"}, {key: 2, address:"0x2",name:"wallet-2"}]
       //wallets: this.props.wallets
     })
   }
@@ -50,7 +50,7 @@ export class Wallet extends Component {
   render() {
     var wallets = this.state.wallets;
     var walletList = wallets.map(function(wallet) {
-      return <div className="wallet-list">{wallet.address} {wallet.name}</div>
+      return <div className="wallet-list" key={wallet.key}>{wallet.address} {wallet.name}</div>
       })
     return (
       <div className="Wallet">
