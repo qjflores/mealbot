@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
 
-import {Modal, Button} from 'react-bootstrap';
+import {Modal, Button, DropdownButton, MenuItem} from 'react-bootstrap';
+import CustomToggle from './CustomToggle';
+import CustomMenu from './CustomMenu';
 
 export class AddBalanceModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      wallet: undefined,
-      balance:0
+      wallet1: "",
+      balance:0,
+      wallets:[]
     };
     this.handleWalletChange = this.handleWalletChange.bind(this);
     this.handleBalanceChange = this.handleBalanceChange.bind(this);
   }
 
-  handleWalletChange(event) {
-    this.setState({wallet: event.target.value});
+  componentWillMount() {
+    console.log("componentWillMount");
+    this.setState({wallets:this.props.wallets});
+  }
+
+  componentDidMount(){
+    console.log("componentDidMount");
+    this.setState({wallets:this.props.wallets});
+  }
+
+  handleWalletChange(wallet) {
+    console.log("handleWalletChange");
+    this.setState({wallet1:wallet});
+    
   }
 
   handleBalanceChange(event) {
@@ -22,6 +37,12 @@ export class AddBalanceModal extends Component {
   }
 
   render() {
+    var wallets = this.props.wallets;
+    var handleWalletChange = this.handleWalletChange;
+    var walletList = wallets.map(function(wallet) {
+      return <MenuItem className="" key={wallet.key} value={wallet} eventKey={wallet.key} onClick={() => handleWalletChange(wallet)}>{wallet.address} {wallet.name}</MenuItem>
+      })
+
     return(
       <div className="AddBalanceModal">
         <Modal show={this.props.showBalanceModal} onHide={this.props.closeBalanceModal}>
@@ -31,8 +52,10 @@ export class AddBalanceModal extends Component {
           <Modal.Body>
             <p> Add Balance from Wallet</p>
             <label>
-            Wallet:
-            <input value={this.state.wallet} onChange={this.handleWalletChange}/>
+              <DropdownButton id="dropdown-wallets" title="Select Wallet">
+                {walletList}
+              </DropdownButton>
+              <input value={this.state.wallet1["name"]} onChange={this.handleWalletChange} placeholder={this.state.wallet1["name"]} disabled/>
             </label>
             <label>
             Balance:

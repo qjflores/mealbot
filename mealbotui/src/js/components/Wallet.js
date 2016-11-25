@@ -21,8 +21,8 @@ export class Wallet extends Component {
   componentWillMount() {
     this.setState({
       isWalletAttached:this.props.isWalletAttached,
-      wallets:[{key: 1, address:"0x1",name:"wallet-1"}, {key: 2, address:"0x2",name:"wallet-2"}]
-      //wallets: this.props.wallets
+      //wallets:[{key: 1, address:"0x1",name:"wallet-1"}, {key: 2, address:"0x2",name:"wallet-2"}]
+      wallets: this.props.wallets
     })
   }
 
@@ -42,9 +42,8 @@ export class Wallet extends Component {
   }
 
   addWallet(walletName, walletAddress) {
-    var updatedWallet =this.state.wallets;
-    updatedWallet.push({address:walletAddress,name:walletName});
-    this.setState({ showWalletModal: false, wallets:updatedWallet});
+    this.props.updateWallet(walletName, walletAddress)
+    this.setState({ showWalletModal: false});
   }
 
   render() {

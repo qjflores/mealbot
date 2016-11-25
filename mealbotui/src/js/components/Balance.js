@@ -10,7 +10,8 @@ export class Balance extends Component {
 		this.state = {
 			isWalletAttached: false,
 			showBalanceModal: false,
-			balance: 0
+			balance: 0,
+			wallets:[]
 		};
 		this.addBalance = this.addBalance.bind(this);
     this.openBalanceModal = this.openBalanceModal.bind(this);
@@ -20,8 +21,20 @@ export class Balance extends Component {
 	componentWillMount() {
 		this.setState({
 			isWalletAttached:this.props.isWalletAttached,
-			balance: this.props.balance
+			balance: this.props.balance,
+			wallets: this.props.wallets
 		})
+		console.log("Balance.componentWillMount");
+		console.log(this.props.wallets);
+
+	}
+
+	componentDidMount(){
+		console.log("Balance.componentDidMount");
+		this.setState({
+			wallets: this.props.wallets
+		})
+		console.log(this.state.wallets);
 	}
 
 	openBalanceModal() {
@@ -59,6 +72,7 @@ export class Balance extends Component {
         showBalanceModal={this.state.showBalanceModal} 
         closeBalanceModal={this.closeBalanceModal}
         addBalance={this.addBalance}
+        wallets={this.state.wallets}
         /> : null}
 
       </div>
