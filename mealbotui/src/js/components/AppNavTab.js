@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './../../css/AppNavTab.css'
 
 import {Row, Nav, NavItem, Grid, Col} from 'react-bootstrap';
+import * as firebase from "firebase";
 
 import {Account} from './Account';
 import {Schedule} from './Schedule'; 
@@ -22,6 +23,7 @@ export class AppNavTab extends Component {
     this.clickChart = this.clickChart.bind(this);
     this.clickGear = this.clickGear.bind(this);
     this.clickKitchenShift = this.clickKitchenShift.bind(this);
+    this.clickLogout = this.clickLogout.bind(this);
   } 
 
   componentWillMount() {
@@ -79,19 +81,24 @@ export class AppNavTab extends Component {
 
   clickKitchenShift() {
     console.log("clickKitchenShift");
-    console.log(this);
     this.setState({isHomeVisible:false, isScheduleVisible:false, isAccountVisible: false, isKitchenShiftVisible: true});
   }
 
+  clickLogout() {
+    console.log("cliclickKitchenShiftckLogout1");
+    firebase.auth().signOut();
+    this.setState({isHomeVisible:true, isScheduleVisible:false, isAccountVisible: false, isKitchenShiftVisible: false});
+  }
+
   render() {
-    console.log("render AppNavTab");
+    console.log("AppNavTab.render");
     return (
         <Grid>
         <Row className="App-nav-header">
           <Col xs={6} md={4}><i className="fa fa-bar-chart fa-5x" onClick={this.clickChart.bind(this)}></i></Col>
           <Col xs={6} md={4} className="App-name" onClick={this.clickLogo.bind(this)}>MealBot </Col>
           <Col xs={6} md={4}>
-            <SettingsMenu clickHandler={this.clickGear} clickKitchenShift={this.clickKitchenShift.bind(this)}/>
+            <SettingsMenu clickLogout={this.clickLogout.bind(this)} clickHandler={this.clickGear} clickKitchenShift={this.clickKitchenShift.bind(this)}/>
           </Col>
         </Row>
         <Row>

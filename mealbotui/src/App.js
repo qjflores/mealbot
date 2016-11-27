@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 
-
 import Web3 from 'web3';
 import _ from 'lodash';
 
 import AppNavTab from './js/components/AppNavTab';
+
 
 var ETHEREUM_CLIENT = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 

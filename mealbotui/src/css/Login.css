@@ -35,3 +35,21 @@
 	width: 10%;
 	background-color: grey;
 }
+
+.signup-button {
+	margin: auto;
+	margin-top: 1rem;
+	border: solid;
+	border-width: 1px;
+	width: 10%;
+	background-color: blue;	
+}
+
+.logout-button {
+	margin: auto;
+	margin-top: 1rem;
+	border: solid;
+	border-width: 1px;
+	width: 10%;
+	background-color: red;
+}
