@@ -14,7 +14,9 @@
     "font-awesome": "^4.7.0",
     "react-native":"^0.37.0",
     "auth0-lock": "^10.6.1",
-    "react-bootstrap": "^0.30.6"
+    "react-bootstrap": "^0.30.6",
+    "reactfire": "^1.0.0",
+    "firebase": "^3.6.1"
   },
   "scripts": {
     "start": "react-scripts start",

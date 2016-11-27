@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import {Modal, Button, DropdownButton, MenuItem} from 'react-bootstrap';
-import CustomToggle from './CustomToggle';
-import CustomMenu from './CustomMenu';
+
 
 export class AddBalanceModal extends Component {
   constructor(props) {

@@ -9,7 +9,6 @@ export class Login extends Component {
       isNotLoggedIn: false,
       isAuthenticated: false
     }
-    this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
   }
 
@@ -20,34 +19,28 @@ export class Login extends Component {
     }
   }
 
-  login() {
-      // We can call the show method from Auth0Lock,
-      // which is passed down as a prop, to allow
-      // the user to log in
-      event.preventDefault();
-      console.log("Login.login");
-      this.setState({isNotLoggedIn: true,
-        isAuthenticated: true});
-    }
-
   logout() {
     // AuthActions.logUserOut();
-    this.setState({isNotLoggedIn: false});
+    this.setState({isNotLoggedIn: true});
   }
 
   render() {
     return (
       <div className="Login">
         <div className="email-label">
-        Email<input className="email-input" placeholder="Email"></input>
+        Email<input id="txtEmail" type="email" className="email-input" placeholder="Email"></input>
         </div>
         <div className="password-label">
         Password
-        <input className="password-input" placeholder="Password"></input>
+        <input id="txtPassword" type="Password" className="password-input" placeholder="Password"></input>
         </div>
         <div className="login-button" onClick={this.props.login}>
           Login
         </div>
+        <div className="signup-button" onClick={this.props.signup}>
+          Signup
+        </div>
+
       </div>
       )
   }

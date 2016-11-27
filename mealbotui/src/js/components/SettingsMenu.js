@@ -22,7 +22,7 @@ export class SettingsMenu extends Component {
               <MenuItem eventKey="1" onClick={this.props.clickKitchenShift}>Kitchen Shifts</MenuItem>
               <MenuItem eventKey="2">Account Settings</MenuItem>
               <MenuItem divider />
-              <MenuItem eventKey="3">Logout</MenuItem>
+              <MenuItem eventKey="3" onClick={this.props.clickLogout}>Logout</MenuItem>
             </CustomMenu>
           </Dropdown>
         </div>
