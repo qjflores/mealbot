@@ -4,17 +4,19 @@ import {Login} from './Login';
 import {AccountEmpty} from './AccountEmpty';
 
 import * as firebase from "firebase";
-
+import ReactFireMixin from 'reactfire';
+import reactMixin from 'react-mixin';
 
 export class Account extends Component {
+  //mixins: [ReactFireMixin]
+
   constructor(props) {
     super(props);
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
     }
     this.login = this.login.bind(this);
     this.signup = this.signup.bind(this);
-    this.logout = this.logout.bind(this);
   }
 
   componentWillMount() {
@@ -36,9 +38,6 @@ export class Account extends Component {
   }
 
   login() {
-      // We can call the show method from Auth0Lock,
-      // which is passed down as a prop, to allow
-      // the user to log in
       event.preventDefault();
       console.log("Login.login");
       const txtEmail = document.getElementById('txtEmail');
@@ -62,11 +61,13 @@ export class Account extends Component {
     const email = txtEmail.value;
     const pass = txtPassword.value;
 
-    const auth = firebase.auth();
 
+    const auth = firebase.auth();
     const promise = auth.createUserWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
 
+    var userdata = {"email":email}
+    var ref = firebase.database().ref("users").set(userdata);
   }
 
 
@@ -82,5 +83,7 @@ export class Account extends Component {
       )
   }
 }
+
+reactMixin(Account.prototype, ReactFireMixin);
 
 export default Account;
