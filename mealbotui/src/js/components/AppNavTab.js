@@ -16,7 +16,8 @@ export class AppNavTab extends Component {
       isAccountVisible:false,
       isScheduleVisible:false,
       isHomeVisible:true,
-      isKitchenShiftVisible: false
+      isKitchenShiftVisible: false,
+      user:undefined
     };
     this.handleAccountSelect = this.handleAccountSelect.bind(this);
     this.handleScheduleSelect = this.handleScheduleSelect.bind(this);  
@@ -24,6 +25,8 @@ export class AppNavTab extends Component {
     this.clickGear = this.clickGear.bind(this);
     this.clickKitchenShift = this.clickKitchenShift.bind(this);
     this.clickLogout = this.clickLogout.bind(this);
+    this.login = this.login.bind(this);
+    this.signup = this.signup.bind(this);
   } 
 
   componentWillMount() {
@@ -36,6 +39,17 @@ export class AppNavTab extends Component {
     })
   }
 
+  componentDidMount() {
+    console.log("AppNavTab.componentDidMount");
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) {
+        this.setState({isAuthenticated:true,
+          user:firebaseUser})
+      } else {
+        console.log("not logged in");
+      }
+    })
+  }
 
   handleAccountSelect() {
     console.log("handleAccountSelect");
@@ -90,6 +104,41 @@ export class AppNavTab extends Component {
     this.setState({isHomeVisible:true, isScheduleVisible:false, isAccountVisible: false, isKitchenShiftVisible: false});
   }
 
+  login() {
+      console.log("AppNavTab.login");
+      event.preventDefault();
+      const txtEmail = document.getElementById('txtEmail');
+      const txtPassword = document.getElementById('txtPassword');
+      const auth = firebase.auth();
+      const email = txtEmail.value;
+      const pass = txtPassword.value;
+
+      const promise = auth.signInWithEmailAndPassword(email, pass);
+      promise.catch(e => console.log(e.message));
+    }
+
+  signup() {
+    console.log("signup");
+    const txtEmail = document.getElementById('txtEmail');
+    const txtPassword = document.getElementById('txtPassword');
+
+    const email = txtEmail.value;
+    const pass = txtPassword.value;
+
+
+    const auth = firebase.auth();
+    var userid = "";
+    auth.createUserWithEmailAndPassword(email, pass).then(function(firebaseUser){
+      userid = firebaseUser.uid;
+      var userdata = {[userid]:{"email":email}};
+      firebase.database().ref("users").set(userdata);
+      //Here if you want you can sign in the user
+      }).catch(function(error) {
+          //Handle error
+          console.log(error.message)
+      });
+  }
+
   render() {
     console.log("AppNavTab.render");
     return (
@@ -107,10 +156,10 @@ export class AppNavTab extends Component {
           <NavItem className="nav-item-mb" eventKey="true" value="true" onSelect={this.handleAccountSelect.bind(this)}>Account</NavItem>
           <NavItem className="nav-item-mb" eventKey="false" value="false" onSelect={this.handleScheduleSelect.bind(this)}>Schedule</NavItem>
           </Nav>
-          {this.state.isAccountVisible ? <Account /> : null}
-          {this.state.isScheduleVisible ? <Schedule /> : null}
+          {this.state.isAccountVisible ? <Account login={this.login} signup={this.signup} /> : null}
+          {this.state.isScheduleVisible ? <Schedule user={this.state.user}/> : null}
           {this.state.isHomeVisible ? <Home /> : null}
-          {this.state.isKitchenShiftVisible ? <KitchenShift /> : null}
+          {this.state.isKitchenShiftVisible ? <KitchenShift user={this.state.user}/> : null}
         </div>
         </Row>
         </Grid>

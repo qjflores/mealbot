@@ -10,7 +10,8 @@ export class Wallet extends Component {
     this.state = {
       isWalletAttached: false,
       showWalletModal: false,
-      wallets:[]
+      wallets:[],
+      user: undefined
     };
     this.attachWallet = this.attachWallet.bind(this);
     this.openWalletModal = this.openWalletModal.bind(this);
@@ -21,8 +22,8 @@ export class Wallet extends Component {
   componentWillMount() {
     this.setState({
       isWalletAttached:this.props.isWalletAttached,
-      //wallets:[{key: 1, address:"0x1",name:"wallet-1"}, {key: 2, address:"0x2",name:"wallet-2"}]
-      wallets: this.props.wallets
+      wallets: this.props.wallets,
+      user: this.props.user
     })
   }
 

@@ -7,13 +7,19 @@ export class AccountEmpty extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			wallets: []
+			wallets: [],
+			user: undefined
 		};
 		this.updateWallet = this.updateWallet.bind(this);
 	}
 
 	componentWillMount() {
-		this.setState({wallets:[{key: 1, address:"0x1",name:"wallet-1"}, {key: 2, address:"0x2",name:"wallet-2"}]})
+		console.log("AccountEmpty.componentWillMount")
+		console.log(this.props.user)
+		this.setState({
+			wallets:[{key: 1, address:"0x1",name:"wallet-1"}, {key: 2, address:"0x2",name:"wallet-2"}],
+			user: this.props.user
+		})
 	}
 
   updateWallet(walletName, walletAddress) {
@@ -28,8 +34,8 @@ export class AccountEmpty extends Component {
 	render() {
 		return (
 			<div className="AccountEmpty">
-			<Wallet label="Wallets" isWalletAttached={false} wallets={this.state.wallets} updateWallet={this.updateWallet}/>
-			<Balance label="Balance" balance={0} isWalletAttached={false} wallets={this.state.wallets}/>
+			<Wallet user={this.state.user} label="Wallets" isWalletAttached={false} wallets={this.state.wallets} updateWallet={this.updateWallet}/>
+			<Balance user={this.state.user} label="Balance" balance={0} isWalletAttached={false} wallets={this.state.wallets}/>
 			</div>
 			)
 	}

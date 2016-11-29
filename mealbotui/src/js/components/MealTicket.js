@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import './../../css/MealTicket.css'
+import './../../css/MealTicket.css';
+
 
 export class MealTicket extends Component {
 	constructor(props) {
@@ -16,11 +17,11 @@ export class MealTicket extends Component {
 		});
 	}
 
-
 	render() {
-		var mb_style=this.state.style
+		var mb_style=this.state.style;
 		if (this.props.isReserved) {
 			mb_style={backgroundColor:'red'};
+
 		}
 		else {
 			mb_style={backgroundColor:'white'};
